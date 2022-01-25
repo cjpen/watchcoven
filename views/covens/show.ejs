@@ -1,0 +1,29 @@
+<%- include('./partials/header')  %>
+
+<h2>Upcoming Viewings for <%= [coven name] %></h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Date/Time</th>
+            <th>Location</th>
+            <th>Details</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% viewings.forEach(function(v) { %>
+            <tr>
+                <td><%= v.movie %></td>
+                <td><%= v.date %></td>
+                <td><%= v.location %></td>
+                <td><a href="/covens/<%= v._id%>/edit">EDIT</a></td>
+                <td><button id="deleteViewing">X</button></td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
+
+
+<%- include('./partials/footer')  %>

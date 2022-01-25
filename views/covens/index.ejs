@@ -2,6 +2,15 @@
 
 <h2>My Covens</h2>
 
+<table>
+    <tbody>
+        <% user.covens.forEach(function(c) { %>
+            <tr>
+                <td><a href="/covens/:id"><%= c.name %></a></td>
+            </tr>
+        <% });%>
+    </tbody>
+</table>
 
 
 <%- include('./partials/footer')  %>
