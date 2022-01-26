@@ -54,3 +54,8 @@ h1 {
 .login img {
   height: 30px;
 }
+
+#covenInfo {
+  display: flex;
+  
+}

@@ -11,10 +11,10 @@
 <body>
     <nav>
         <img src="/images/cauldron_PNG8.png">
-        <a href="/">HOME</a>
         <% if (user) { %>
+            <a href="/covens">My Watch Covens</a>
             <a href="/covens/new">Found a Coven</a>
-            <a href="">Join a Coven</a>
+            <a href="">Browse all Covens</a>
             <a href="/logout">LOG OUT</a>
         <% } else { %>
             <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>

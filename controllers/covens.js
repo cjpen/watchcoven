@@ -3,14 +3,37 @@ const Coven = require('../models/coven');
 module.exports = {
     index,
     new: newCoven,
-    create
+    create,
+    show,
+    join
 };
+
+function join(req, res) {
+    Coven.findOne( {_id: req.params.id, members: {$nin: req.user._id}}, function(err, coven){
+        if (!coven) return res.redirect('/covens');
+        coven.members.push(req.user._id);
+        coven.save(function(){
+            res.redirect(`/covens/${req.params.id}`);
+        });
+    });
+}
+
+function show(req,res) {
+    Coven.findById(req.params.id)
+    .populate('leader')
+    .populate('members')
+    .exec(function(err, coven) {
+        res.render('covens/show', { title: `${coven.name}`, coven})
+    });
+}
 
 function create(req, res) {
     var coven = new Coven(req.body);
+    coven.leader = req.user._id;
+    coven.members.push(req.user._id);
     coven.save(function (err) {
         if (err) return res.redirect('/coven/new');
-        res.redirect('/coven/:id')
+        res.redirect('/covens')
     });
 };
 
@@ -19,5 +42,7 @@ function newCoven(req, res) {
 }
 
 function index(req, res) {
-    res.render('covens', { title: "My Covens" })
+    Coven.find( {members: req.user._id}, function(err, covens) {
+        res.render('covens/index', { title: "My Covens", covens });
+    });
 }

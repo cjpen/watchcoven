@@ -2,12 +2,12 @@
 
 <h2>Found a New Watch Coven</h2>
 
-<!-- <span> -->
-    <h4>Give your Watch Coven a name:</h4><input id="coven-name" placeholder="The Sanderson Sisters">
-    <h4>Create a description of your Watch Coven:</h4><input id="coven-description" placeholder="Come little children...">
-    <h4>Copy and paste a link to a web image for your Watch Coven:</h4><input id="coven-logo" placeholder="URL">
+<form action="/covens" method="POST">
+    <h4>Give your Watch Coven a name:</h4><input name="name" id="coven-name" placeholder="The Sanderson Sisters">
+    <h4>Create a description of your Watch Coven:</h4><input name="description" id="coven-description" placeholder="Come little children...">
+    <h4>Copy and paste a link to a web image for your Watch Coven:</h4><input name="image" id="coven-logo" placeholder="URL">
     <br>
-    <button id="create">Found your Watch Coven</button>
-<!-- </span> -->
+    <button id="create" type="submit">Found your Watch Coven</button>
+</form>
 
 <%- include('../partials/footer')  %>

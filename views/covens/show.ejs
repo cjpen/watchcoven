@@ -1,29 +1,39 @@
-<%- include('./partials/header')  %>
+<%- include('../partials/header')  %>
 
-<h2>Upcoming Viewings for <%= [coven-name] %></h2>
+<% if( !coven.members.some(m => m._id.equals(user._id))) { %>
+    <form action="/covens/<%= coven._id %>/members" method="POST">
+        <button>Join This Coven</button>
+    </form>
+<% } %>
 
+<span id="covenInfo">
+    <img src="<%= coven.image%>" alt="">
+    <p><%= coven.description %></p>
+</span>
+<h2>Coven Members</h2>
 <table>
     <thead>
         <tr>
-            <th>Movie</th>
-            <th>Date/Time</th>
-            <th>Location</th>
-            <th>Details</th>
-            <th>Delete</th>
+            <th>Leader</th>
         </tr>
     </thead>
-    <tbody>
-        <% viewings.forEach(function(v) { %>
-            <tr>
-                <td><%= v.movie %></td>
-                <td><%= v.date %></td>
-                <td><%= v.location %></td>
-                <td><a href="/covens/<%= v._id%>/edit">EDIT</a></td>
-                <td><button id="deleteViewing">X</button></td>
-            </tr>
+    <tbody></tbody>
+    <tr>
+        <td><img src="<%= coven.leader.avatar %>"></td>
+        <td><%= coven.leader.name %></td>
+        </tr>
+        <tr>
+            <th>Followers</th>
+        </tr>
+        <% coven.members.forEach(function(m) { %>
+            <% if( !coven.leader._id.equals(m._id) ) { %>
+                <tr>
+                    <td><img src="<%= m.avatar %>"></td>
+                    <td><%= m.name %></td>
+                </tr>
+            <% } %>
         <% }); %>
-    </tbody>
 </table>
 
 
-<%- include('./partials/footer')  %>
+<%- include('../partials/footer')  %>
