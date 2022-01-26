@@ -4,9 +4,9 @@
 
 <table>
     <tbody>
-        <% user.covens.forEach(function(c) { %>
+        <% covens.forEach(function(c) { %>
             <tr>
-                <td><a href="/covens/:id"><%= c.name %></a></td>
+                <td><a href="/covens/<%= c._id %>"><%= c.name %></a></td>
             </tr>
         <% });%>
     </tbody>
