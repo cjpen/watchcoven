@@ -6,12 +6,14 @@ var isLoggedIn = require('../config/auth');
 // Get /covens (display my covens)
 // router.get
 router.get("/", isLoggedIn, covensCtrl.index);
+//
+router.get("/all", covensCtrl.all);
 // GET /covens/new (create a new coven)
 router.get("/new", isLoggedIn, covensCtrl.new);
 // POST /covens (Handle a new coven being submitted)
 router.post("/", isLoggedIn, covensCtrl.create);
 // GET /covens/:id (show coven details, including description and upcoming viewings)
-router.get("/:id", isLoggedIn, covensCtrl.show);
+router.get("/:id", covensCtrl.show);
 // EDIT /covens/:id/edit (edit details of the Coven)
 
 // POST /covens/:id/members (handle joining a Coven)

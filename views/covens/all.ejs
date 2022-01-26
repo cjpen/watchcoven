@@ -1,18 +1,18 @@
 <%- include('../partials/header')  %>
 
+<h2>All Covens</h2>
+
 <table>
     <tbody>
         <% covens.forEach(function(c) { %>
             <tr>
                 <td><a href="/covens/<%= c._id %>"><%= c.name %></a></td>
+                <td><%= c.description%></td>
+                <td><img src="<%= c.image %>"></td>
             </tr>
         <% });%>
     </tbody>
 </table>
-<br>
-    
-<form action="/covens/new" method="GET">
-    <button>Found a new Coven</button>
-</form>
+
 
 <%- include('../partials/footer')  %>

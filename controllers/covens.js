@@ -5,11 +5,18 @@ module.exports = {
     new: newCoven,
     create,
     show,
-    join
+    join,
+    all
 };
 
+function all(req, res) {
+    Coven.find( {} , function(err, covens) {
+        res.render('covens/all', {title: "All Covens", covens})
+    });
+}
+
 function join(req, res) {
-    Coven.findOne( {_id: req.params.id, members: {$nin: req.user._id}}, function(err, coven){
+    Coven.findOne( {_id: req.params.id, members: {$nin: req.user._id}}, function(err, coven) {
         if (!coven) return res.redirect('/covens');
         coven.members.push(req.user._id);
         coven.save(function(){
