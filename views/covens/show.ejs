@@ -35,5 +35,11 @@
         <% }); %>
 </table>
 
-<form action=""
+<% if( coven.leader._id.equals(user._id)) { %>
+    <a href="/covens/<%= coven._id %>/edit">EDIT</a>
+    <form action="/covens/<%= coven._id %>?_method=DELETE" method="POST">
+        <button>Dissolve Your Coven</button>
+    </form>
+<% } %>
+
 <%- include('../partials/footer')  %>

@@ -1,10 +1,13 @@
-<%- include('./partials/header')  %>
+<%- include('../partials/header') %>
 
-<h2>Create a new Watch Coven</h2>
+<h2>Update <%= coven.name %></h2>
 
-<span>
-    <input value="Your New Coven's Name"><input>
-    <button>Create</button>
-</span>
+<form action="/covens/<%= coven._id %>?_method=PUT" method="POST">
+    <h4>Give your Watch Coven a name:</h4><input name="name" value="<%= coven.name %>">
+    <h4>Create a description of your Watch Coven:</h4><input name="description" value="<%= coven.description %>">
+    <h4>Copy and paste a link to a web image for your Watch Coven:</h4><input name="image" value="<%= coven.image %>">
+    <br>
+    <button type="submit">Update</button>
+</form>
 
-<%- include('./partials/footer')  %>
+<%- include('../partials/footer')  %>

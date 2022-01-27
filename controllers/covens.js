@@ -6,8 +6,30 @@ module.exports = {
     create,
     show,
     join,
-    all
+    all,
+    edit,
+    update,
+    delete: deleteCoven
 };
+
+function deleteCoven(req, res) {
+    Coven.findOneAndDelete({_id: req.params.id, leader: req.user._id}, function(err){
+        res.redirect('/covens');
+    });
+}
+
+function edit(req, res) {
+    Coven.findOne({_id: req.params.id, leader: req.user._id}, function(err, coven){
+        if ( !coven ) return res.redirect("/covens");
+        res.render('covens/edit', {title: "EDIT", coven});
+    });
+}
+
+function update(req, res) {
+    Coven.findOneAndUpdate({_id: req.params.id, leader: req.user._id}, req.body, function(err, coven){
+        res.redirect(`/covens/${coven._id}`);
+    });
+}
 
 function all(req, res) {
     Coven.find( {} , function(err, covens) {
