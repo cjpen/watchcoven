@@ -5,11 +5,19 @@
         <button>Join This Coven</button>
     </form>
 <% } %>
-
+    
+    
 <span id="covenInfo">
     <img src="<%= coven.image%>" alt="">
     <p><%= coven.description %></p>
 </span>
+
+<br>
+    
+<% if( coven.leader._id.equals(user._id)) { %>
+    <a href="/covens/<%= coven._id %>/edit">Edit Coven Details</a>
+<% } %>
+
 <h2>Coven Members</h2>
 <table>
     <thead>
@@ -17,29 +25,26 @@
             <th>Leader</th>
         </tr>
     </thead>
-    <tbody></tbody>
-    <tr>
-        <td><img src="<%= coven.leader.avatar %>"></td>
-        <td><%= coven.leader.name %></td>
+    <tbody>
+        <tr>
+            <td><img class="userAvatar" src="<%= coven.leader.avatar %>"></td>
+            <td><%= coven.leader.name %></td>
         </tr>
+    </tbody>
         <tr>
             <th>Followers</th>
         </tr>
         <% coven.members.forEach(function(m) { %>
             <% if( !coven.leader._id.equals(m._id) ) { %>
                 <tr>
-                    <td><img src="<%= m.avatar %>"></td>
+                    <td><img class="userAvatar" src="<%= m.avatar %>"></td>
                     <td><%= m.name %></td>
                 </tr>
             <% } %>
         <% }); %>
 </table>
 
-<% if( coven.leader._id.equals(user._id)) { %>
-    <a href="/covens/<%= coven._id %>/edit">EDIT</a>
-    <form action="/covens/<%= coven._id %>?_method=DELETE" method="POST">
-        <button>Dissolve Your Coven</button>
-    </form>
-<% } %>
+<a href="/covens/<%= coven._id %>/viewings/new">Schedule the next Viewing for your Watch Coven</a>
+
 
 <%- include('../partials/footer')  %>

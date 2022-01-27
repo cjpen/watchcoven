@@ -9,5 +9,11 @@
     <br>
     <button type="submit">Update</button>
 </form>
+<br>
+<% if( coven.leader._id.equals(user._id)) { %>
+    <form action="/covens/<%= coven._id %>?_method=DELETE" method="POST">
+        <button>Dissolve Your Coven</button>
+    </form>
+<% } %>
 
 <%- include('../partials/footer')  %>

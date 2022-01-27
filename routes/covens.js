@@ -23,4 +23,5 @@ router.delete("/:id", isLoggedIn, covensCtrl.delete);
 // POST /covens/:id/members (handle joining a Coven)
 router.post("/:id/members", isLoggedIn, covensCtrl.join);
 
+
 module.exports = router

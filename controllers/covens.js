@@ -9,8 +9,11 @@ module.exports = {
     all,
     edit,
     update,
-    delete: deleteCoven
+    delete: deleteCoven,
+    
 };
+
+
 
 function deleteCoven(req, res) {
     Coven.findOneAndDelete({_id: req.params.id, leader: req.user._id}, function(err){

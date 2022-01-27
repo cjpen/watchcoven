@@ -55,7 +55,13 @@ h1 {
   height: 30px;
 }
 
+.userAvatar {
+  border-radius: 100%;
+  height: 30px;
+  width: auto;
+}
+
 #covenInfo {
   display: flex;
-  
+  gap: 10px;
 }
