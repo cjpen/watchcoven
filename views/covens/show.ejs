@@ -30,9 +30,9 @@
             <td><img class="userAvatar" src="<%= coven.leader.avatar %>"></td>
             <td><%= coven.leader.name %></td>
         </tr>
-    </tbody>
+
         <tr>
-            <th>Followers</th>
+            <th colspan="2">Followers</th>
         </tr>
         <% coven.members.forEach(function(m) { %>
             <% if( !coven.leader._id.equals(m._id) ) { %>
@@ -40,11 +40,34 @@
                     <td><img class="userAvatar" src="<%= m.avatar %>"></td>
                     <td><%= m.name %></td>
                 </tr>
-            <% } %>
-        <% }); %>
+                <% } %>
+                <% }); %>
+            </tbody>
 </table>
+<table>
+    <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Host</th>
+            <th>Location</th>
+            <th>Date/Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% coven.viewings.forEach(function(v) { %>
+            <tr>
+                <td><%= v.movieTitle %></td>
+                <td><%= v.host %></td>
+                <td><%= v.location %></td>
+                <td><%= v.viewingTime.toLocaleString() %></td>
+            </tr>
 
-<a href="/covens/<%= coven._id %>/viewings/new">Schedule the next Viewing for your Watch Coven</a>
-
-
-<%- include('../partials/footer')  %>
+        <% }); %>
+    </tbody>
+</table>
+                
+                
+                
+                <a href="/covens/<%= coven._id %>/viewings/new">Schedule the next Viewing for your Watch Coven</a>
+                
+                <%- include('../partials/footer')  %>

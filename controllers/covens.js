@@ -55,6 +55,7 @@ function show(req,res) {
     .populate('leader')
     .populate('members')
     .exec(function(err, coven) {
+        coven.viewings.sort((a,b) => a.viewingTime - b.viewingTime);
         res.render('covens/show', { title: `${coven.name}`, coven})
     });
 }

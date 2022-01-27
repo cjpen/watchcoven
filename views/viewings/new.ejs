@@ -2,13 +2,13 @@
 
 <h2>Create a New Viewing for Your Coven</h2>
 
-<form action="/covens" method="POST">
+<form action="/covens/<%= coven._id %>/viewings" method="POST">
     <label>Movie Name:</label>
     <input name="movieTitle" placeholder="Hocus Pocus" required>
     <label>Host:</label>
     <select  name="host" required>
         <% coven.members.forEach(function(m) { %>
-            <option value="<% m._id %>"><%= m.name %></option>
+            <option value="<%= m.name %>"><%= m.name %></option>
         <% }); %>
     </select>
     <label>Location:</label>
