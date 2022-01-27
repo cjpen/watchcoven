@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: white;
   background-color: black;
@@ -7,7 +7,7 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: black;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -44,6 +44,9 @@ h1 {
   font-size: 60px;
 }
 
+table {
+  width: 90vmin;
+}
 .login {
   display: flex;
   justify-content: center;
