@@ -3,13 +3,18 @@ const Schema = mongoose.Schema;
 
 const viewingSchema = new Schema({
   movieTitle: String,
+  host: String,
+  location: String,
   viewingTime: Date
 }, {
   timestamps: true
 });
 
 const covenSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true
+  },
   leader: {
       type: Schema.Types.ObjectId,
       ref: "User",
