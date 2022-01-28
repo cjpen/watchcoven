@@ -13,14 +13,14 @@ https://the-watch-coven.herokuapp.com/
 
 ## Technologies Used
 
--Mongoose
--MongoDB
--Express
--Heroku
--NodeJS
--Trello
--HTML
--CSS
+- Mongoose
+- MongoDB
+- Express
+- Heroku
+- NodeJS
+- Trello
+- HTML
+- CSS
 
 ## User Stories & Wireframes
 
