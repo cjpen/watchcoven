@@ -1,5 +1,0 @@
-<% if( coven.leader._id.equals(user._id)) { %>
-    <form action="/covens/" method="DELETE">
-        <button>Dissolve Your Coven</button>
-    </form>
-<% } %>

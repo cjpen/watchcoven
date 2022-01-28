@@ -4,7 +4,9 @@
     <tbody>
         <% covens.forEach(function(c) { %>
             <tr>
+                <td><img class="covenAvatar" src="<%= c.image %>"></td>
                 <td><a href="/covens/<%= c._id %>"><%= c.name %></a></td>
+                <td><%= c.description%></td>
             </tr>
         <% });%>
     </tbody>

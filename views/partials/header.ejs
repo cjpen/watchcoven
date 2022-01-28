@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link href="https://fonts.googleapis.com/css2?family=Kings&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kings&family=Supermercado+One&display=swap" rel="stylesheet">
     <title><%= title %></title>
 </head>
 <body>
     <nav>
-        <img src="/images/cauldron_PNG8.png">
+        <img id="cat" src="/images/black_cat.jpeg">
         <% if (user) { %>
             <a href="/covens">My Watch Covens</a>
             <a href="/covens/all">Browse All Covens</a>
             <a href="/logout">LOG OUT</a>
             <% } else { %>
-                <a href="/covens/all">Browse All Covens</a>
+                <a class="loginhref="/covens/all">Browse All Covens</a>
                 <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
         <% } %>
     </nav>

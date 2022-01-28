@@ -1,14 +1,15 @@
 <%- include('../partials/header')  %>
 
-<% if( !coven.members.some(m => m._id.equals(user._id))) { %>
-    <form action="/covens/<%= coven._id %>/members" method="POST">
-        <button>Join This Coven</button>
-    </form>
-<% } %>
-    
+<div id="joinCoven">
+    <% if( !coven.members.some(m => m._id.equals(user._id))) { %>
+        <form action="/covens/<%= coven._id %>/members" method="POST">
+            <button>Join This Coven</button>
+        </form>
+    <% } %>
+</div>
     
 <span id="covenInfo">
-    <img src="<%= coven.image%>" alt="">
+    <img class="covenAvatar" src="<%= coven.image%>" alt="">
     <p><%= coven.description %></p>
 </span>
 
@@ -22,28 +23,37 @@
 <table>
     <thead>
         <tr>
-            <th>Leader</th>
+            <th colspan="2">Leader</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><img class="userAvatar" src="<%= coven.leader.avatar %>"></td>
+            <td class="avatartd"><img class="userAvatar" src="<%= coven.leader.avatar %>"></td>
             <td><%= coven.leader.name %></td>
         </tr>
+    </tbody>
+</table>
 
+<table>
+    <thead>
         <tr>
             <th colspan="2">Followers</th>
         </tr>
         <% coven.members.forEach(function(m) { %>
             <% if( !coven.leader._id.equals(m._id) ) { %>
                 <tr>
-                    <td><img class="userAvatar" src="<%= m.avatar %>"></td>
+                    <td class="covenAvatar"><img class="userAvatar" src="<%= m.avatar %>">
                     <td><%= m.name %></td>
                 </tr>
                 <% } %>
                 <% }); %>
             </tbody>
 </table>
+
+<h2>Viewings</h2>
+
+<a id="scheduleViewing"href="/covens/<%= coven._id %>/viewings/new">Schedule the next Viewing for your Watch Coven</a>
+
 <table>
     <thead>
         <tr>
@@ -68,6 +78,5 @@
                 
                 
                 
-                <a href="/covens/<%= coven._id %>/viewings/new">Schedule the next Viewing for your Watch Coven</a>
                 
-                <%- include('../partials/footer')  %>
+<%- include('../partials/footer')  %>

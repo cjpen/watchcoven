@@ -1,11 +1,12 @@
 <%- include('../partials/header')  %>
 
-<h2>Found a New Watch Coven</h2>
-
 <form action="/covens" method="POST">
-    <h4>Give your Watch Coven a name:</h4><input name="name" id="coven-name" placeholder="The Sanderson Sisters">
-    <h4>Create a description of your Watch Coven:</h4><input name="description" id="coven-description" placeholder="Come little children...">
-    <h4>Copy and paste a link to a web image for your Watch Coven:</h4><input name="image" id="coven-logo" placeholder="URL">
+    <h4>Give your Watch Coven a name:</h4>
+    <input name="name" id="coven-name" placeholder="The Sanderson Sisters" required>
+    <h4>Create a description of your Watch Coven:</h4>
+    <input name="description" id="coven-description" placeholder="Come little children..." required>
+    <h4>Copy and paste a link to a web image for your Watch Coven:</h4>
+    <input name="image" id="coven-logo" placeholder="URL" required>
     <br>
     <button id="create" type="submit">Found your Watch Coven</button>
 </form>
