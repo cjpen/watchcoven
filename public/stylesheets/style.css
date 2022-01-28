@@ -114,6 +114,9 @@ td {
   justify-self: flex-end;
 }
 
+.covenAvatar {
+  width: 25vmin;
+}
 
 #covenInfo {
   display: flex;
@@ -123,12 +126,8 @@ td {
 button {
   width: 20%;
   justify-content: center;
-  font: 14px 'Kings', cursive;
+  font: 20px 'Kings', cursive;
   color: white;
   background-color: red;
   border-color: red;
-}
-
-.covenAvatar {
-  width: 15vmin;
 }
